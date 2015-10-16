@@ -3,7 +3,7 @@ package org.swati.euler.algorithms;
 import java.util.Random;
 
 /**
- * Random Binary number search
+ * Random Binary number search for various things
  *
  * @author Swati Kumar
  * @since 1.0.0
