@@ -19,7 +19,8 @@ public class RandomBinarySearch {
         this.maxLimit = maxLimit;
     }
 
-    private Integer randomBinarySearch(Integer lb, Integer ub, Integer tries) {
+    public Integer randomBinarySearch(Integer lb, Integer ub, Integer tries) {
+        //The comparison of number with lower and upper bound is also counted as a try
         if (number.equals(lb) || number.equals(ub) || lb >= ub || lb < minLimit || ub > maxLimit) {
             return tries;
         }
@@ -34,7 +35,7 @@ public class RandomBinarySearch {
         return randomBinarySearch(lb, ub, tries + 1);
     }
 
-    private Integer actualBinarySearch(Integer lb, Integer ub, Integer tries) {
+    public Integer actualBinarySearch(Integer lb, Integer ub, Integer tries) {
         if (number.equals(lb) || number.equals(ub) || lb >= ub || lb < minLimit || ub > maxLimit) {
             return tries;
         }
@@ -47,6 +48,18 @@ public class RandomBinarySearch {
             ub = tryVal - 1;
         }
         return randomBinarySearch(lb, ub, tries + 1);
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public Integer getMinLimit() {
+        return minLimit;
+    }
+
+    public Integer getMaxLimit() {
+        return maxLimit;
     }
 
     public static void main(String args[]) {
