@@ -79,27 +79,23 @@ public class WordLadder {
             }
             prevLevel = currLevel;
 
-            for (String givenWord : wordList) {
-                if (unvisited.contains(givenWord) && isAcceptableTransform(givenWord, word)) {
-                    visited.add(givenWord);
-                    queue.add(new Node(givenWord, top, top.getLevel() + 1));
+            char[] arrWord = word.toCharArray();
+            for (char letter = 'a'; letter <= 'z'; letter++) {
+                for (int i = 0; i < arrWord.length; i++) {
+                    char store = arrWord[i];
+                    if (store != letter) {
+                        arrWord[i] = letter;
+                    }
+                    String givenWord = new String(arrWord);
+                    if (unvisited.contains(givenWord)) {
+                        visited.add(givenWord);
+                        queue.add(new Node(givenWord, top, top.getLevel() + 1));
+                    }
+                    arrWord[i] = store;
                 }
             }
         }
         return chains;
-    }
-
-    private boolean isAcceptableTransform(String givenWord, String transformedWord) {
-        if (givenWord.length() != transformedWord.length()) {
-            return false;
-        }
-        int differnce = 0;
-        for (int i = 0; i < givenWord.length(); i++) {
-            if (givenWord.charAt(i) != transformedWord.charAt(i)) {
-                differnce++;
-            }
-        }
-        return differnce == 1;
     }
 
     public class Node {
@@ -139,7 +135,6 @@ public class WordLadder {
         wordList.add("dog");
         wordList.add("lot");
         wordList.add("log");
-        wordList.add("cot");
         wordLadder.findLadders("hit", "cog", wordList);
     }
 
