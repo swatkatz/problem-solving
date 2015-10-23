@@ -1,5 +1,14 @@
 package org.swati.euler.algorithms;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.Test;
+
 /**
  * Add tests for WordLadder
  *
@@ -7,6 +16,20 @@ package org.swati.euler.algorithms;
  * @since 1.0.0
  */
 public class WordLadderTest {
-    //TO DO add tests
+    WordLadder wordLadder = new WordLadder();
 
+    @Test
+    public void testWordLadder() {
+        Set<String> wordList = new HashSet<String>();
+        wordList.add("can");
+        wordList.add("rap");
+        wordList.add("ran");
+        wordList.add("cap");
+        List<List<String>> chains = wordLadder.findLadders("can", "rap", wordList);
+        assertNotNull(chains);
+        assertEquals(2, chains.size());
+        assertEquals(3, chains.get(0).size());
+        assertEquals(3, chains.get(1).size());
+
+    }
 }
