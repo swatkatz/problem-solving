@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Gives the max number of points on a line
+ * Given n points on a 2D plane,
+ * find the maximum number of points that lie on the same straight line.
  *
  * @author Swati Kumar
  * @since 1.0.0
