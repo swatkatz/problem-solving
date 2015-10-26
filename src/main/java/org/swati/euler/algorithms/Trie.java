@@ -55,7 +55,7 @@ public class Trie {
         return searchWord(prefix, true).isFound();
     }
 
-    private SearchNode searchWord(String word, boolean partial) {
+    public SearchNode searchWord(String word, boolean partial) {
         char[] wordArr = word.toCharArray();
         TrieNode currNode = root;
         if (currNode == null) {
@@ -125,6 +125,10 @@ public class Trie {
 
         public boolean isLeafNode() {
             return isEnd;
+        }
+
+        public void setIsEnd(boolean isEnd) {
+            this.isEnd = isEnd;
         }
     }
 
