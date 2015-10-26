@@ -1,4 +1,4 @@
-package org.swati.euler.algorithms;
+package org.swati.leetcode.algorithms.tree;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
+import org.swati.org.swati.leetcode.algorithms.tree.WordLadder;
 
 /**
  * Add tests for WordLadder

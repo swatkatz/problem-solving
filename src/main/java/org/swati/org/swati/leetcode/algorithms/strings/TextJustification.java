@@ -1,4 +1,4 @@
-package org.swati.euler.algorithms;
+package org.swati.org.swati.leetcode.algorithms.strings;
 
 import java.util.ArrayList;
 import java.util.List;
