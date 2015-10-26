@@ -1,4 +1,4 @@
-package org.swati.org.swati.leetcode.algorithms;
+package org.swati.leetcode.algorithms;
 
 import java.util.ArrayList;
 import java.util.Collections;

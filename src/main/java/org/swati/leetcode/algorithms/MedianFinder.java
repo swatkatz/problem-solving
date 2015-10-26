@@ -1,4 +1,4 @@
-package org.swati.org.swati.leetcode.algorithms;
+package org.swati.leetcode.algorithms;
 
 import java.util.Collections;
 import java.util.Map;
