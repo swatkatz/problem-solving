@@ -1,4 +1,4 @@
-package org.swati.euler.algorithms;
+package org.swati.org.swati.leetcode.algorithms.tree;
 
 import java.util.HashMap;
 import java.util.Map;
