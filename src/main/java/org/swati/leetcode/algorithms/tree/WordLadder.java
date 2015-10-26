@@ -1,4 +1,4 @@
-package org.swati.org.swati.leetcode.algorithms.tree;
+package org.swati.leetcode.algorithms.tree;
 
 import java.util.ArrayList;
 import java.util.HashSet;

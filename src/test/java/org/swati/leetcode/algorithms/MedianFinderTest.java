@@ -3,7 +3,6 @@ package org.swati.leetcode.algorithms;
 import static junit.framework.TestCase.assertEquals;
 
 import org.junit.Test;
-import org.swati.org.swati.leetcode.algorithms.MedianFinder;
 
 /**
  * Description

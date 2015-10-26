@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
-import org.swati.org.swati.leetcode.algorithms.tree.WordLadder;
 
 /**
  * Add tests for WordLadder
