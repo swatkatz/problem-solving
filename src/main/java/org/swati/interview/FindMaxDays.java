@@ -39,7 +39,7 @@ public class FindMaxDays {
         maxDaysToPos[0] = 0;
         maxDaysToPos[1] = arr[0];
         for (int i = 2; i < maxDaysToPos.length; i++) {
-            maxDaysToPos[i] = Math.max(maxDaysToPos[i - 1], maxDaysToPos[i - 2] + arr[i -1]);
+            maxDaysToPos[i] = Math.max(maxDaysToPos[i - 1], maxDaysToPos[i - 2] + arr[i - 1]);
         }
         return maxDaysToPos[maxDaysToPos.length - 1];
     }
