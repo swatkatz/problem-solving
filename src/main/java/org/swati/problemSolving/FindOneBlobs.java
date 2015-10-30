@@ -1,4 +1,4 @@
-package org.swati.interview;
+package org.swati.problemSolving;
 
 /**
  * Given a 2-D array print the number of 1 blobs that we find in the array.
