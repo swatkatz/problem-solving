@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * but otherwise preserves the ordering.
  * Your program should return the new array and print out the results in blocks representing the pages.
  *
- * @author swkumar (swkumar@groupon.com)
+ * @author Swati Kumar
  * @since 1.0.0
  */
 public class Pagination {
@@ -33,13 +34,14 @@ public class Pagination {
             Integer hostId = Integer.parseInt(input[i].split(",")[0]);
             if (sortedPage.size() != 0 && sortedPage.size() % pageSize == 0) {
                 output.addAll(sortedPage.values());
-                sortedPage = new LinkedHashMap<Integer, String>();
-                List<String> dupCopy = new ArrayList<String>(duplicates);
-                for (String dupStr : dupCopy) {
+                sortedPage.clear();
+                Iterator<String> dupItr = duplicates.iterator();
+                while (dupItr.hasNext()) {
+                    String dupStr = dupItr.next();
                     Integer dupHostId = Integer.parseInt(dupStr.split(",")[0]);
                     if (sortedPage.get(dupHostId) == null) {
                         sortedPage.put(dupHostId, dupStr);
-                        duplicates.remove(dupStr);
+                        dupItr.remove();
                     }
                 }
             }
