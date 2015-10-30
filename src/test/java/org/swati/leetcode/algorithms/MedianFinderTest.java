@@ -5,9 +5,9 @@ import static junit.framework.TestCase.assertEquals;
 import org.junit.Test;
 
 /**
- * Description
+ * Median finder test case
  *
- * @author swkumar (swkumar@groupon.com)
+ * @author Swati Kumar
  * @since 1.0.0
  */
 public class MedianFinderTest {
