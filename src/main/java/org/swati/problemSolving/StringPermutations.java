@@ -1,4 +1,4 @@
-package org.swati.interview;
+package org.swati.problemSolving;
 
 import java.util.Arrays;
 import java.util.HashSet;
