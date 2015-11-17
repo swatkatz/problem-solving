@@ -47,7 +47,7 @@ public class RandomBinarySearch {
         } else {
             ub = tryVal - 1;
         }
-        return randomBinarySearch(lb, ub, tries + 1);
+        return actualBinarySearch(lb, ub, tries + 1);
     }
 
     public Integer getNumber() {
