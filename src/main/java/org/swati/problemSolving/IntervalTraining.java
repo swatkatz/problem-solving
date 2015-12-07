@@ -14,32 +14,6 @@ import java.util.List;
 public class IntervalTraining {
     private List<Interval> intervals = new ArrayList<Interval>();
 
-    public class Interval {
-        private int start;
-        private int end;
-
-        public Interval(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-
-        public void setStart(int start) {
-            this.start = start;
-        }
-
-        public void setEnd(int end) {
-            this.end = end;
-        }
-
-        public int getStart() {
-            return this.start;
-        }
-
-        public int getEnd() {
-            return this.end;
-        }
-    }
-
     private void addInterval(Interval interval) {
         intervals.add(interval);
         //sort the list
