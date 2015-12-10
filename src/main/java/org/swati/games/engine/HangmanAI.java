@@ -94,7 +94,7 @@ public class HangmanAI {
         }
     }
 
-    public boolean gameOVer() {
+    public boolean gameOver() {
         return guesses <= 0 || gameWon();
     }
 
