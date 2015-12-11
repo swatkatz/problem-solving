@@ -57,9 +57,7 @@ public class StringPermutations {
         boolean retVal = false;
         if (n == 0) {
             System.out.println("prefix " + prefix);
-            if (hiddenString.equalsIgnoreCase(prefix)) {
-                return true;
-            }
+            return hiddenString.equalsIgnoreCase(prefix);
         } else {
             for (int i = 0; i < n; i++) {
                 if (retVal) {

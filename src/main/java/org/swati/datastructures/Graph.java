@@ -63,6 +63,7 @@ class Vertex {
     private List<Edge> tails;
     private Integer score = Integer.MAX_VALUE;
     private Vertex predecessor = null;
+    private boolean visited = false;
 
     public char getName() {
         return name;
@@ -78,6 +79,10 @@ class Vertex {
 
     public Vertex getPredecessor() {
         return predecessor;
+    }
+
+    public boolean isVisited() {
+        return visited;
     }
 
     public void setName(char name) {
@@ -96,9 +101,29 @@ class Vertex {
         this.predecessor = predecessor;
     }
 
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
     @Override
     public String toString() {
         return "" + name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Vertex)) return false;
+
+        Vertex vertex = (Vertex) o;
+
+        return getName() == vertex.getName();
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) getName();
     }
 }
 

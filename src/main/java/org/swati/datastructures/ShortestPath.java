@@ -89,7 +89,6 @@ public class ShortestPath {
             Set<Vertex> neighbors = graph.getNeighbors(curr);
             for (Vertex vertex : neighbors) {
                 int minScore = vertex.getScore();
-                Vertex minVertex = null;
                 //Get the min score for all the edges from curr to vertex
                 for (Edge edge : graph.getDirectPaths(curr, vertex)) {
                     int newScore = shortestPathVal + edge.getWeight();
