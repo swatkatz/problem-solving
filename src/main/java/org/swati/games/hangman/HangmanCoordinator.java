@@ -1,9 +1,6 @@
-package org.swati.games.coordinator;
+package org.swati.games.hangman;
 
 import java.util.Scanner;
-
-import org.swati.games.engine.HangmanAI;
-import org.swati.games.model.Message;
 
 /**
  * The coordinator that talks to the user
