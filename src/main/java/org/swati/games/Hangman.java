@@ -47,7 +47,7 @@ public class Hangman implements Game {
     }
 
     public boolean gameOver() {
-        return hangmanAI.gameOVer();
+        return hangmanAI.gameOver();
     }
 
     public boolean gameWon() {
