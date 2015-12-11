@@ -1,4 +1,4 @@
-package org.swati.games.engine;
+package org.swati.games.hangman;
 
 import java.util.ArrayList;
 import java.util.HashMap;
