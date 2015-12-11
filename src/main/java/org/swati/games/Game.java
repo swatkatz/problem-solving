@@ -10,5 +10,4 @@ public interface Game {
     void playGame();
     boolean gameOver();
     boolean gameWon();
-    boolean gameLost();
 }

@@ -1,4 +1,4 @@
-package org.swati.games.model;
+package org.swati.games.hangman;
 
 /**
  * Messages to be presented to the user

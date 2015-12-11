@@ -3,9 +3,9 @@ package org.swati.games;
 import java.util.Arrays;
 import java.util.List;
 
-import org.swati.games.coordinator.HangmanCoordinator;
-import org.swati.games.engine.HangmanAI;
-import org.swati.games.model.Message;
+import org.swati.games.hangman.HangmanCoordinator;
+import org.swati.games.hangman.HangmanAI;
+import org.swati.games.hangman.Message;
 
 /**
  * A Hangman interpretation of the game shell
@@ -52,10 +52,6 @@ public class Hangman implements Game {
 
     public boolean gameWon() {
         return hangmanAI.gameWon();
-    }
-
-    public boolean gameLost() {
-        return !hangmanAI.gameWon();
     }
 
     public static void main(String[] args) {
