@@ -38,6 +38,7 @@ public class TreeBuilder {
         public Integer id;
         public Node left;
         public Node right;
+        public String nodeStr = "";
 
         public Node(Integer id, Node left, Node right) {
             this.id = id;
@@ -45,9 +46,16 @@ public class TreeBuilder {
             this.right = right;
         }
 
+        public Node(Integer id, Node left, Node right, String nodeStr) {
+            this.id = id;
+            this.left = left;
+            this.right = right;
+            this.nodeStr = nodeStr;
+        }
+
         @Override
         public String toString() {
-            return "id " + id;
+            return "id" + id + " " + nodeStr;
         }
     }
 
