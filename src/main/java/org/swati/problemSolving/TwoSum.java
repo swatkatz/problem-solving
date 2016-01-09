@@ -65,19 +65,5 @@ public class TwoSum {
         System.out.println("Test " + twoSum.test(10));
         System.out.println("Test " + twoSum.test(5));
         System.out.println("Test " + twoSum.test(0));
-
-        try {
-            Double.parseDouble("s");
-        } catch (NumberFormatException e) {
-            System.out.println("comes here");
-        }
-        Stack<Double> stack = new Stack<Double>();
-        stack.push(43.53);
-        stack.push(23.34);
-        if (stack.size() >= 2) {
-            Double val = stack.pop();
-            Double val2 = stack.pop();
-            System.out.println("val2 " + val2);
-        }
     }
 }
