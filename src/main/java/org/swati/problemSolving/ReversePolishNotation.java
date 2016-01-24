@@ -38,7 +38,7 @@ public class ReversePolishNotation {
                 if (stack.size() >= 2) {
                     Double operand1 = stack.pop();
                     Double operand2 = stack.pop();
-                    Double result = null;
+                    Double result;
                     switch(val.charAt(0)) {
                         case '+' :
                             result = operand2 + operand1;

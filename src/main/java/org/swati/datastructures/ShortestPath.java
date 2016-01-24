@@ -68,7 +68,7 @@ public class ShortestPath {
     }
 
     private int getShortestPath(Graph graph, Vertex source, Vertex destination) {
-        /*CheckComparator ch = new CheckComparator();
+        CheckComparator ch = new CheckComparator();
         PriorityQueue<Vertex> frontier = new PriorityQueue<Vertex>(ch);
         source.setScore(0);
         frontier.offer(source);
@@ -104,9 +104,7 @@ public class ShortestPath {
                 }
             }
         }
-        return shortestPathVal;*/
-        //just change this to the above method..for some reason stupid travis ci is failing for now.
-        return -1;
+        return shortestPathVal;
     }
 
     private void printShortestPath(Vertex destination) {

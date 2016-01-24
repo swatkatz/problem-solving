@@ -1,7 +1,9 @@
 package org.swati.problemSolving;
 
 /**
- * Description
+ * Count the number of unival subtrees in the tree. A subtree is unival if all it's children have the same value.
+ * A leaf node is a unival by default. If a node is a leaf and it has been counted as part of another unival tree,
+ * the count should decrease.
  *
  * @author Swati Kumar
  * @since 1.0.0
@@ -11,6 +13,7 @@ public class CountUnivalSubTrees {
         Node left;
         Node right;
         int val;
+        boolean delevel = false;
 
         public Node(int val) {
             this.val = val;
@@ -28,6 +31,10 @@ public class CountUnivalSubTrees {
             return val;
         }
 
+        public boolean isDelevel() {
+            return delevel;
+        }
+
         public void setLeft(Node left) {
             this.left = left;
         }
@@ -35,37 +42,51 @@ public class CountUnivalSubTrees {
         public void setRight(Node right) {
             this.right = right;
         }
+
+        public void setDelevel(boolean delevel) {
+            this.delevel = delevel;
+        }
     }
 
-    private static int count = 0;
-    public void countUnivalSubTrees(Node node, Node parent) {
-        if (node == null) {
-            return;
-        }
+    public int countUnivalSubTrees(Node node, int count) {
+        if (node != null) {
+            count = countUnivalSubTrees(node.getLeft(), count);
+            count = countUnivalSubTrees(node.getRight(), count);
 
-        if (parent != null && node.getVal() != parent.getVal() && isUnival(node)) {
-            count++;
+            if (isLeaf(node)) {
+                count++;
+                node.setDelevel(true);
+            } else if (isUnival(node)) {
+                count--;
+                node.setDelevel(true);
+            } else {
+                node.setDelevel(false);
+            }
         }
-        countUnivalSubTrees(node.getLeft(), node);
-        countUnivalSubTrees(node.getRight(), node);
+        return count;
     }
 
     private boolean isUnival(Node node) {
         Node left = node.getLeft();
         Node right = node.getRight();
-        if (left == null && right == null) { //leaf node is a unival in itself
+
+        if (left == null && node.getVal() == right.getVal() && right.isDelevel()) {
             return true;
         }
-        if (left == null && node.getVal() == right.getVal()) {
+        if (right == null && node.getVal() == left.getVal() && left.isDelevel()) {
             return true;
         }
-        if (right == null && node.getVal() == left.getVal()) {
-            return true;
-        }
-        if (left != null && right != null && node.getVal() == left.getVal() && node.getVal() == right.getVal()) {
+        if (left != null && right != null
+                && node.getVal() == left.getVal()
+                && node.getVal() == right.getVal()
+                && left.isDelevel() && right.isDelevel()) {
             return true;
         }
         return false;
+    }
+
+    private boolean isLeaf(Node node) {
+        return node.getLeft() == null && node.getRight() == null;
     }
 
     public static void main(String[] args) {
@@ -97,7 +118,7 @@ public class CountUnivalSubTrees {
         n8.setLeft(n11);
         n8.setRight(n12);
 
-        countUnivalSubTrees.countUnivalSubTrees(root, null);
+        int count = countUnivalSubTrees.countUnivalSubTrees(root, 0);
         System.out.println("Univals are " + count);
     }
 }
