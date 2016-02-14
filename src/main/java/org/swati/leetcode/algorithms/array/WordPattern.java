@@ -3,9 +3,9 @@ package org.swati.leetcode.algorithms.array;
 import java.util.HashMap;
 
 /**
- * Description
+ * Match pattern with spaces
  *
- * @author swkumar (swkumar@groupon.com)
+ * @author Swati Kumar
  * @since 1.0.0
  */
 public class WordPattern {

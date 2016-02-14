@@ -57,10 +57,10 @@ public class WordPatternII {
                 }
                 map.put(c, temp);
                 seen.add(temp);
-                if (isMatch(str, i+1, pattern, patStart + 1, map, seen)) {
+                if (isMatch(str, i + 1, pattern, patStart + 1, map, seen)) {
                     return true;
                 }
-                //This relation didnot yeild results, remove it from the map and greedy match again
+                //This relation did not yeild results, remove it from the map and greedy match again
                 map.remove(c);
                 seen.remove(temp);
             }
