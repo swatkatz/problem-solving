@@ -69,40 +69,21 @@ public class FindOneBlobsBFS {
 
     private List<Node> getValidNeighbors(int startRow, int startCol, boolean[][] visited) {
         List<Node> validNodes = new ArrayList<Node>();
-        if (startCol - 1 >= 0) {
-            int newStartCol = startCol - 1;
-            if (startRow - 1 >= 0) {
-                addValidNode(startRow - 1, newStartCol, visited, validNodes);
-            }
-            if (startRow + 1 < size) {
-                addValidNode(startRow + 1, newStartCol, visited, validNodes);
-            }
-            addValidNode(startRow, newStartCol, visited, validNodes);
-        }
-
-        if (startCol + 1 < size) {
-            int newStartCol = startCol + 1;
-            if (startRow - 1 >= 0) {
-                addValidNode(startRow - 1, newStartCol, visited, validNodes);
-            }
-            if (startRow + 1 < size) {
-                addValidNode(startRow + 1, newStartCol, visited, validNodes);
-            }
-            addValidNode(startRow, newStartCol, visited, validNodes);
-        }
-
-        if (startRow + 1 < size) {
-            int newStartRow = startRow + 1;
-            addValidNode(newStartRow, startCol, visited, validNodes);
-        }
-        if (startRow - 1 >= 0) {
-            int newStartRow = startRow - 1;
-            addValidNode(newStartRow, startCol, visited, validNodes);
-        }
+        addValidNode(startRow, startCol - 1, visited, validNodes);
+        addValidNode(startRow, startCol + 1, visited, validNodes);
+        addValidNode(startRow + 1, startCol + 1, visited, validNodes);
+        addValidNode(startRow - 1, startCol + 1, visited, validNodes);
+        addValidNode(startRow + 1, startCol, visited, validNodes);
+        addValidNode(startRow - 1, startCol, visited, validNodes);
+        addValidNode(startRow + 1, startCol - 1, visited, validNodes);
+        addValidNode(startRow - 1, startCol - 1, visited, validNodes);
         return validNodes;
     }
 
     private void addValidNode(int row, int col, boolean[][] visited, List<Node> validNodes) {
+        if (row < 0 || col < 0 || row >= size || col >= size) {
+            return;
+        }
         if (grid[row][col] == 1 && !visited[row][col]) {
             validNodes.add(new Node(row, col));
         }
