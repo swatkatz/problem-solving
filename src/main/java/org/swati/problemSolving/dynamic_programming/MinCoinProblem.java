@@ -15,6 +15,19 @@ import java.util.Map;
  */
 public class MinCoinProblem {
 
+    private int getMinCoinsRecursion(Integer[] denoms, int amount, int ways) {
+        if (amount < 0) {
+            return 0;
+        }
+        if (amount == 0) {
+            return 1;
+        }
+        if (ways <= 0 && amount >= 1) {
+            return 0;
+        }
+        return getMinCoinsRecursion(denoms, amount - denoms[ways], ways) + getMinCoinsRecursion(denoms, amount, denoms[ways - 1]);
+    }
+
     private int getMinCoins(Integer[] denoms, int amount) {
         LinkedHashSet<Integer> denomination = new LinkedHashSet<Integer>(Arrays.asList(denoms));
         int[] cachedSum = new int[amount + 1];
@@ -99,6 +112,15 @@ public class MinCoinProblem {
         } else {
             System.out.println("The combination could not be found based on given denominations");
         }
+
+
+        result = minCoinProblem.getMinCoinsRecursion(denominations, val, denominations.length - 1);
+        if (result > 0) {
+            System.out.println("Min # of coins to make " + val + " are " + result);
+        } else {
+            System.out.println("The combination could not be found based on given denominations");
+        }
+
 
         List<Integer> comboList = minCoinProblem.getMinCoinsVal(denominations, val);
         if (!comboList.isEmpty()) {
