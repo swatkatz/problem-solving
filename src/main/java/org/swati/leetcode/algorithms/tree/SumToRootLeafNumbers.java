@@ -38,6 +38,18 @@ public class SumToRootLeafNumbers {
         return sum;
     }
 
+    private int findPaths(TreeNode node, String path, int sum) {
+        if (node != null) {
+            path = path + node.val;
+            if (node.left == null && node.right == null) {
+                return Integer.parseInt(path);
+            }
+            sum += findPaths(node.left, path, sum);
+            sum += findPaths(node.right, path, sum);
+        }
+        return sum;
+    }
+
     class TreeNode {
         public int val;
         public TreeNode left;

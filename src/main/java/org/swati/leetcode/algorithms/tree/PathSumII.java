@@ -28,33 +28,30 @@ public class PathSumII {
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         allLists = new ArrayList<List<Integer>>();
-        List<TreeNode> aList = new ArrayList<TreeNode>();
+        List<Integer> aList = new ArrayList<Integer>();
         dfs(root, sum, aList, Integer.MIN_VALUE);
         return allLists;
     }
 
-    private void dfs(TreeNode node, int given, List<TreeNode> partialList, int partialSum) {
+    private void dfs(TreeNode node, int given, List<Integer> partialList, int partialSum) {
         if (node != null) {
             if (partialSum == Integer.MIN_VALUE) {
                 partialSum = node.val;
             } else {
                 partialSum += node.val;
             }
-            partialList.add(node);
+            partialList.add(node.val);
             //leaf node
             if (node.left == null && node.right == null) {
                 if (partialSum == given) {
-                    List<Integer> newList = new ArrayList<Integer>();
-                    for (TreeNode treeNode : partialList) {
-                        newList.add(treeNode.val);
-                    }
+                    List<Integer> newList = new ArrayList<Integer>(partialList);
                     allLists.add(newList);
                 }
             } else {
                 dfs(node.left, given, partialList, partialSum);
                 dfs(node.right, given, partialList, partialSum);
             }
-            partialList.remove(node);
+            partialList.remove(node.val);
         }
     }
 

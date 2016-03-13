@@ -40,8 +40,6 @@ public class LRUCache {
         //node already exists, remove it
         if (oldNode != null) {
             removeNode(oldNode);
-            oldNode.next = null;
-            oldNode.prev = null;
         }
         if (cache.size() == capacity) {
             //remove the end node
@@ -69,6 +67,8 @@ public class LRUCache {
             if (head != null && head.equals(currNode)) {
                 head = currNode.getNext();
             }
+            currNode.next = null;
+            currNode.prev = null;
         }
     }
 

@@ -3,7 +3,7 @@ package org.swati.euler.algorithms;
 /**
  * Description
  *
- * @author swkumar (swkumar@groupon.com)
+ * @author Swati Kumar
  * @since 1.0.0
  */
 class PrintMatrix {
