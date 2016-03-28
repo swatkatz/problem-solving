@@ -42,5 +42,9 @@ public class HighestProduct {
         // remember: debugging is half the battle!
         int[] arr = {3, 1, -1, 7, 0, -5};
         System.out.println(getHighestProduct(arr));
+        String ab = "catsanddog";
+        String sub = "cat";
+        ab = ab.replace(sub, "");
+        System.out.println(ab);
     }
 }
