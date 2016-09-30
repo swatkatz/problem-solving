@@ -1,8 +1,6 @@
 package org.swati.leetcode.algorithms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Given a text document and a query, your goal is to find the shortest contiguous snippet of the document that contains all the words of the query. "Shortest" is measured by word length. For example, for the document
@@ -77,6 +75,70 @@ public class ShortestSnippet {
         return tuple;
     }
 
+    private class ValWithIndex {
+        int value;
+        int index;
+
+        ValWithIndex(int value, int index) {
+            this.value = value;
+            this.index = index;
+        }
+    }
+
+    private Tuple getShortestSnippetUsingMinHeap(List<List<Integer>> qsPos) {
+        PriorityQueue<ValWithIndex> minHeap = new PriorityQueue<>(new Comparator<ValWithIndex>() {
+            @Override
+            public int compare(ValWithIndex o1, ValWithIndex o2) {
+                return o1.value - o2.value;
+            }
+        });
+        int numOfQueryWords = qsPos.size();
+        int[] indexArr = new int[numOfQueryWords];
+        int[] sizeOfAllArrays = new int[numOfQueryWords];
+
+        int indexOfMinValue = 0;
+        int minLength = Integer.MAX_VALUE;
+        int maxValue = Integer.MIN_VALUE;
+        Tuple tuple = new Tuple();
+
+        //initialize all the arrays
+
+        //put the first elements from all query arrays
+        for (int i = 1; i < numOfQueryWords; i++) {
+            int firstElement = qsPos.get(i).get(0);
+            minHeap.offer(new ValWithIndex(firstElement, i));
+            if (maxValue < firstElement) {
+                maxValue = firstElement;
+            }
+        }
+        //put the index of the first element from all query arrays
+        for (int i = 0; i < numOfQueryWords; i++) {
+            indexArr[i] = 0;
+        }
+        //put the size of all query arrays
+        for (int i = 0; i < numOfQueryWords; i++) {
+            sizeOfAllArrays[i] = qsPos.get(i).size();
+        }
+
+        while (indexArr[indexOfMinValue] < sizeOfAllArrays[indexOfMinValue]) {
+            int candidateValue = qsPos.get(indexOfMinValue).get(indexArr[indexOfMinValue]);
+            if (maxValue < candidateValue) {
+                maxValue = candidateValue;
+            }
+            minHeap.offer(new ValWithIndex(candidateValue, indexOfMinValue));
+            ValWithIndex minValWithIndex = minHeap.poll();
+            int currMinLength = maxValue - minValWithIndex.value;
+            if (minLength > currMinLength) {
+                minLength = currMinLength;
+                tuple.start = minValWithIndex.value;
+                tuple.end = maxValue;
+            }
+            indexArr[minValWithIndex.index] += 1;
+            indexOfMinValue = minValWithIndex.index;
+        }
+        return tuple;
+    }
+
     private int getMinLength(int[] valArr, Tuple tuple) {
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
@@ -107,7 +169,13 @@ public class ShortestSnippet {
         indexList.add(Arrays.asList(2, 11));
         indexList.add(Arrays.asList(3, 7, 12));
 
+        System.out.println("*****Shortest Snippet Simple*****");
         Tuple t = snippet.getShortestSnippet(indexList);
+        System.out.println("Start:" + t.start
+                + " End:" + t.end + " min_length:" + (t.end - t.start));
+
+        System.out.println("*****Shortest Snippet using MinHeap*****");
+        t = snippet.getShortestSnippetUsingMinHeap(indexList);
         System.out.println("Start:" + t.start
                 + " End:" + t.end + " min_length:" + (t.end - t.start));
     }
