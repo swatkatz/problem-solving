@@ -47,14 +47,14 @@ public class PrintSpiral {
 
             for (int j = maxCol - 1; j >= jStart; j--) {
                 if (!visited[maxRow - 1][j]) {
-                    System.out.println(matrix[maxRow - 1][j] + ",");
+                    System.out.print(matrix[maxRow - 1][j] + ",");
                     visited[maxRow - 1][j] = true;
                 }
             }
 
             for (int i = maxRow - 1; i >= iStart; i--) {
                 if (i != jStart && !visited[i][jStart]) {
-                    System.out.println(matrix[i][jStart] + ",");
+                    System.out.print(matrix[i][jStart] + ",");
                     visited[i][jStart] = true;
                 }
             }
